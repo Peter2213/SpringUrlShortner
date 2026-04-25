@@ -4,11 +4,8 @@ A modern, efficient URL shortening service built with Spring Boot. Convert long 
 
 Demo : [SpringShortnerUrl](https://springurlshortner-production.up.railway.app/)
 
-![1777132436558](image/README/1777132436558.png)
+![1777132954199](image/README/1777132954199.png)
 
-![1777132454378](image/README/1777132454378.png)
-
-![1777132465655](image/README/1777132465655.png)
 
 ## Features
 
