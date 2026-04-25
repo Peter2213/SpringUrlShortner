@@ -43,7 +43,7 @@ public class HomeController {
             
             ShortenUrlResponse response = new ShortenUrlResponse(
                     shortUrl.getShortCode(),
-                    "http://localhost:8080/" + shortUrl.getShortCode(),
+                    "https://springurlshortner-production.up.railway.app/" + shortUrl.getShortCode(),
                     shortUrl.getOriginalUrl(),
                     shortUrl.getCreatedAt(),
                     shortUrl.getExpiresAt()
