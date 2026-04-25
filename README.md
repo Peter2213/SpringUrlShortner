@@ -2,6 +2,14 @@
 
 A modern, efficient URL shortening service built with Spring Boot. Convert long URLs into short, shareable codes with optional expiration tracking.
 
+Demo :[ https://springurlshortner-production.up.railway.app/]()
+
+![1777132436558](image/README/1777132436558.png)
+
+![1777132454378](image/README/1777132454378.png)
+
+![1777132465655](image/README/1777132465655.png)
+
 ## Features
 
 - **URL Shortening**: Convert lengthy URLs into compact, unique short codes
@@ -15,15 +23,15 @@ A modern, efficient URL shortening service built with Spring Boot. Convert long 
 
 ## Technology Stack
 
-| Component | Technology |
-|-----------|-----------|
-| **Framework** | Spring Boot 4.0.5 |
-| **Language** | Java 17 |
+| Component             | Technology                 |
+| --------------------- | -------------------------- |
+| **Framework**   | Spring Boot 4.0.5          |
+| **Language**    | Java 17                    |
 | **Data Access** | Spring Data JPA, Hibernate |
-| **Database** | MySQL |
-| **View Engine** | Thymeleaf |
-| **Build Tool** | Maven |
-| **Utilities** | Lombok |
+| **Database**    | MySQL                      |
+| **View Engine** | Thymeleaf                  |
+| **Build Tool**  | Maven                      |
+| **Utilities**   | Lombok                     |
 
 ## Getting Started
 
@@ -36,30 +44,31 @@ A modern, efficient URL shortening service built with Spring Boot. Convert long 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone <repository-url>
    cd url-shortner
    ```
-
 2. **Configure Database**
-   
+
    Update `src/main/resources/application.properties`:
+
    ```properties
    spring.datasource.url=jdbc:mysql://localhost:3306/urlshortner
    spring.datasource.username=<your-username>
    spring.datasource.password=<your-password>
    ```
-
 3. **Build the Application**
+
    ```bash
    mvn clean package
    ```
-
 4. **Run the Application**
+
    ```bash
    mvn spring-boot:run
    ```
-   
+
    The application will start on `http://localhost:8080`
 
 ## API Endpoints
@@ -71,6 +80,7 @@ A modern, efficient URL shortening service built with Spring Boot. Convert long 
 Creates a new shortened URL. Returns the short code and full short URL.
 
 **Request Body:**
+
 ```json
 {
   "url": "https://example.com/very/long/url/that/needs/shortening"
@@ -78,6 +88,7 @@ Creates a new shortened URL. Returns the short code and full short URL.
 ```
 
 **Response (200 OK):**
+
 ```json
 {
   "shortCode": "abc123xyz",
@@ -130,17 +141,22 @@ url-shortner/
 ## Configuration
 
 ### Database Configuration
+
 Edit `application.properties` to configure MySQL connection:
+
 - `spring.datasource.url`: Database URL
 - `spring.datasource.username`: Database user
 - `spring.datasource.password`: Database password
 - `spring.jpa.hibernate.ddl-auto`: Schema update mode (update, create, validate)
 
 ### Server Configuration
+
 - `server.port`: Application port (default: 8080)
 
 ### Logging
+
 Enable detailed SQL logging by setting:
+
 ```properties
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.format_sql=true
@@ -164,6 +180,7 @@ java -jar target/url-shortner-0.0.1-SNAPSHOT.jar
 ### Database Schema
 
 The application creates a `short_urls` table with the following columns:
+
 - `id`: Primary key (auto-increment)
 - `short_code`: Unique short code (max 10 characters)
 - `original_url`: Full original URL
@@ -173,16 +190,21 @@ The application creates a `short_urls` table with the following columns:
 ## Key Components
 
 ### ShortCodeGenerator
+
 Generates unique, random short codes to minimize collision probability.
 
 ### UrlShortenerService
+
 Core business logic handling:
+
 - URL shortening with duplicate detection
 - Short code generation and validation
 - URL retrieval and expiration checking
 
 ### HomeController
+
 Manages HTTP requests:
+
 - Web form submission and display
 - Short URL creation with error handling
 - Redirect functionality
@@ -197,6 +219,7 @@ Manages HTTP requests:
 ## Error Handling
 
 The application provides comprehensive validation:
+
 - Invalid URL format validation
 - Duplicate URL detection
 - Expired URL handling
